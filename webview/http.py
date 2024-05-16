@@ -126,7 +126,10 @@ class BottleServer:
                 bottle.response.set_header('Cache-Control', 'no-cache, no-store, must-revalidate')
                 bottle.response.set_header('Pragma', 'no-cache')
                 bottle.response.set_header('Expires', 0)
-                return bottle.static_file(file, root=server.root_path)
+                if file.endswith('.js'):
+                    return bottle.static_file(file, root=server.root_path, mimetype="application/javascript")
+                else:
+                    return bottle.static_file(file, root=server.root_path)
 
         server.root_path = abspath(common_path) if common_path is not None else None
         server.port = http_port or _get_random_port()

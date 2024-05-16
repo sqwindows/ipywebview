@@ -611,6 +611,7 @@ def create_window(window):
             windll.user32.SetProcessDPIAware()
 
         if is_cef:
+            init_storage()
             CEF.init(window, cache_dir)
 
         thread = Thread(ThreadStart(create))
