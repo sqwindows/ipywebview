@@ -29,3 +29,5 @@ docs/examples
 gradle*
 .pypirc
 .env
+ipywebview.egg-info
+.setup
