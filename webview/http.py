@@ -1,5 +1,5 @@
 from __future__ import annotations
-
+import encodings.idna
 import os
 import sys
 from typing import TypeVar, cast
