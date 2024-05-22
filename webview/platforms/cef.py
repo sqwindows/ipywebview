@@ -306,7 +306,8 @@ def create_browser(window, handle, alert_func, parent):
 
         default_browser_settings = {}
         all_browser_settings = dict(default_browser_settings, **browser_settings)
-
+        if 'ignore_certificate_errors' in all_browser_settings:
+            del all_browser_settings['ignore_certificate_errors']
         cef_browser = cef.CreateBrowserSync(
             window_info=window_info, settings=all_browser_settings, url=real_url
         )
